@@ -3,7 +3,7 @@ const fs = require('fs').promises;
 class CartManager {
     constructor(filePath, eventEmitter) {
         this.filePath = filePath;
-        this.eventEmitter = eventEmitter; // Recibe el eventEmitter desde el server.js
+        this.eventEmitter = eventEmitter; 
     }
 
     async getAllCarts() {
@@ -42,7 +42,6 @@ class CartManager {
 
         await fs.writeFile(this.filePath, JSON.stringify(carts, null, 2));
 
-        // Emitir el evento 'updateCart' utilizando el eventEmitter recibido
         if (this.eventEmitter) {
             console.log(`🔄 Producto agregado al carrito: ID ${cartId}, emitiendo evento`);
             this.eventEmitter.emit('updateCart', cart);

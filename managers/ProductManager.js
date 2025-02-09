@@ -35,7 +35,7 @@ class ProductManager {
         await fs.writeFile(this.filePath, JSON.stringify(products, null, 2));
 
         if (this.eventEmitter) {
-            console.log('🔹 Producto agregado, emitiendo evento');
+            console.log('🔹 Producto agregado');
             this.eventEmitter.emit('newProduct', newProduct);
         }
 
@@ -52,7 +52,7 @@ class ProductManager {
         await fs.writeFile(this.filePath, JSON.stringify(products, null, 2));
 
         if (this.eventEmitter) {
-            console.log('🔄 Producto actualizado, emitiendo evento');
+            console.log('🔄 Producto actualizado');
             this.eventEmitter.emit('updateProduct', updatedProduct);
         }
 
